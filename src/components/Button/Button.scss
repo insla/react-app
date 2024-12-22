@@ -1,0 +1,43 @@
+@use '@/style/variables' as *;
+
+.button {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 161px;
+  height: 33px;
+  font-size: 18px;
+  border-radius: 100px;
+  border: 2px solid $yellow;
+  opacity: 100%;
+  transition: all 0.2s;
+
+  &:hover, &:active {
+    opacity: 60%;
+  }
+
+  &_filled {
+    background-color: $yellow;
+    color: $black;
+  }
+
+  &_outlined {
+    color: $yellow;
+  }
+
+  &_tablet-large {
+    @include tablet {
+      width: 191px;
+      height: 54px;   
+      font-size: 22px;
+    }
+  }
+
+  &_desktop-large {
+    @include desktop {
+      width: 191px;
+      height: 54px;   
+      font-size: 22px;
+    }
+  }
+}

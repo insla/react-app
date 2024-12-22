@@ -1,0 +1,159 @@
+@use '@/style/variables' as *;
+
+.header {
+  background-color: $black;
+  padding: 12px 0;
+  @include tablet {
+    padding: 28px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    cursor: pointer;
+    width: 71px;
+    transition: all 0.2s;
+    scale: 1;
+    &:active {
+      scale: 0.9;
+    }
+    @include desktop {
+      width: 104px;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    @include tablet {
+      display: none;
+    }
+  }
+  
+  &__nav-toggle {
+    display: none;
+  }
+
+  &__nav-toggle:checked + .header__icon span:nth-child(1) {
+    transform: rotate(35deg) translate(6px, 6px);
+  }
+
+  &__nav-toggle:checked + .header__icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__nav-toggle:checked + .header__icon span:nth-child(3) {
+    transform: rotate(-35deg) translate(6px, -6px);
+  }
+
+  &__nav-toggle:checked ~ .header__nav {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22.5px;
+    height: 18px;
+    cursor: pointer;
+
+    span {
+      display: block;
+      height: 1px;
+      background-color: $white;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 260px;
+    background-color: $black;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    opacity: 0;
+    visibility: hidden;
+    margin-right: 20px;
+    @include tablet {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      top: auto;
+      right: auto;
+      width: auto;
+      transition: none;
+      transform: none;
+      ul {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+    }
+    @include desktop {
+      margin-right: 11px;
+    }
+
+    li {
+      padding: 11px 20px;
+      @include tablet {
+        padding: 0px 14px;
+        &:last-child {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &__link {
+    color: $white;
+    font-size: 18px;
+    transition: --a 0.2s, --b 0.2s;
+    background-image: linear-gradient(135deg, var(--a), var(--b));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:hover, &:active {
+      --a: var(--yellow);
+      --b: var(--pink);          
+    }
+  }
+
+  &__icon {
+    &:hover, &:active {
+      .header__path_solid {
+        opacity: 0;
+      }
+      .header__path_gradient {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__path {
+    transition: opacity 0.2s ease;
+  }
+}
+
+@property --a {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: $white;
+}
+
+@property --b {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: $white;
+}

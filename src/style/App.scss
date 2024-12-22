@@ -1,0 +1,44 @@
+@use '@/components/Header/Header.scss';
+@use '@/components/Button/Button.scss';
+@use '@/components/Banner/Banner.scss';
+@use '@/components/Offers/Offers.scss';
+@use '@/components/InfoText/InfoText.scss';
+@use '@/components/Footer/Footer.scss';
+@use './fonts' as *;
+@use './reset' as *;
+@use './variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  background-color: $white;
+  color: $white;
+  min-width: 320px;
+  max-width: 100vw;
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  background: linear-gradient(225deg, #0D1E48, #304571);
+}
+
+.container {
+  width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @include tablet {
+    padding: 0 30px;
+  }
+  @include desktop {
+    padding: 0 80px;
+  }
+}

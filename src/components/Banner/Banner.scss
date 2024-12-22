@@ -1,0 +1,72 @@
+@use '@/style/variables' as *;
+
+
+.banner {
+  background: 
+    url('@images/earth.webp'),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(15, 20, 32, 0.79)),
+    url('@images/main-space.webp');
+  background-size: 332px auto, auto, cover;
+  background-position: center -118px, center, bottom;
+  background-repeat: no-repeat;
+  @include tablet {
+    background-position: calc(100% + 106px) center, center, bottom;
+  }
+  @include desktop {
+    background-size: 361px auto, auto, cover;
+    background-position: calc(50% + 400px) center, center, bottom;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1248px;
+    margin: 0 auto;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 250px 34px 44px;
+    @include tablet {
+      padding: 100px 30px;
+      align-items: flex-start;
+    }
+    @include desktop {
+      padding: 91px 80px 119px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto 17px;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 800;
+    span {
+      color: $pink;
+    }
+    @include tablet {
+      text-align: left;
+      font-size: 48px;
+      margin: 0 0 22px 0;
+      max-width: 411px;
+    }
+    @include desktop {
+      font-size: 72px;
+      max-width: 693px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 17px;
+    font-size: 16px;
+    font-weight: 800;
+    @include tablet {
+      font-size: 22px;
+      margin: 0 0 22px 0;
+    }
+    @include desktop {
+      font-size: 32px;
+    }
+  }
+}

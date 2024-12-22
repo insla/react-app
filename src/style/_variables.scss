@@ -1,0 +1,25 @@
+$pink: #FF70D9;
+$yellow: #EBFF00;
+$blue: #304571;
+$black: #000000;
+$white: #FFFFFF;
+
+:root {
+  --pink: #{$pink};
+  --yellow: #{$yellow};
+}
+
+$tablet-width: 768px;
+$desktop-width: 1248px;
+
+@mixin tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}

@@ -1,0 +1,85 @@
+@use '@/style/variables' as *;
+
+.info-text {
+  padding-bottom: 50px;
+  @include tablet {
+    padding-bottom: 53px;
+  }
+  @include desktop {
+    padding-bottom: 60px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+    @include tablet {
+      margin-bottom: 13px;
+      font-size: 24px;
+    }
+    @include desktop {
+      margin-bottom: 17px;
+      font-size: 32px;
+    }
+  }
+
+  &__content {
+    font-size: 14px;
+    opacity: 60%;
+    @include tablet {
+      font-size: 16px;
+    }
+    @include desktop {
+      font-size: 20px;
+    }
+  }
+
+  &__text-toggle {
+    display: none;
+  }
+
+  &__content_full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s, padding-top 0.3s;
+  }
+
+  &__text-toggle:checked ~ .info-text__content_full {
+    max-height: 1000px;
+    padding-top: 20px;
+    @include desktop {
+      padding-top: 17px;
+    }
+  }
+
+  &__label {
+    margin-top: 20px;
+    display: inline-block;
+    color: $yellow;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    @include tablet {
+      font-size: 16px;
+    }
+    @include desktop {
+      margin-top: 17px;
+      font-size: 20px;
+    }
+  }
+
+  &__read-more::after {
+    content: 'Read more';
+    transition: max-height 0.2s;
+  }
+
+  &__text-toggle:checked + .info-text__label .info-text__read-more::after {
+    content: 'Read less';
+  }
+}
+
+
+
+
+
